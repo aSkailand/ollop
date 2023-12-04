@@ -147,8 +147,15 @@ redirect_uri.searchParams.append("response_type", "code");
 redirect_uri.searchParams.append("client_id", "78592");
 redirect_uri.searchParams.append("state", "1234");
 redirect_uri.searchParams.append("scope", "read");
-redirect_uri.searchParams.append("redirect_uri", "http://localhost:8000/auth");
-
+redirect_uri.searchParams.append(
+  "redirect_uri",
+  `${window.location.origin}/auth`
+);
+interface Runner {
+  id: string;
+  name: string;
+  runner: string;
+}
 const IndexPage: React.FC<PageProps> = () => {
   const [runners, setRunners] = useState<Runner[]>([]);
   useEffect(() => {
