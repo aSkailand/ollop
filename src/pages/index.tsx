@@ -167,22 +167,26 @@ const IndexPage: React.FC<PageProps> = () => {
     fetchRunners();
   }, []);
 
-  const redirect_uri = new URL("https://www.strava.com");
-  redirect_uri.pathname = "/oauth/authorize";
-  redirect_uri.searchParams.append("response_type", "code");
-  redirect_uri.searchParams.append("client_id", "78592");
-  redirect_uri.searchParams.append("state", "1234");
-  redirect_uri.searchParams.append("scope", "read");
-  redirect_uri.searchParams.append(
-    "redirect_uri",
-    `${window?.location.origin}/auth`
-  );
+  const getLoginUrl = () => {
+    if (typeof window === "undefined") return "/";
+    const redirect_uri = new URL("https://www.strava.com");
+    redirect_uri.pathname = "/oauth/authorize";
+    redirect_uri.searchParams.append("response_type", "code");
+    redirect_uri.searchParams.append("client_id", "78592");
+    redirect_uri.searchParams.append("state", "1234");
+    redirect_uri.searchParams.append("scope", "read");
+    redirect_uri.searchParams.append(
+      "redirect_uri",
+      `${window.location.origin}/auth`
+    );
+    return redirect_uri.toString();
+  };
 
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>ølløp</h1>
       <h2>
-        <a style={linkStyle} href={redirect_uri.toString()}>
+        <a style={linkStyle} href={getLoginUrl()}>
           link strava account
         </a>
       </h2>
