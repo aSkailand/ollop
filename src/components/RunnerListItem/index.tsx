@@ -43,7 +43,9 @@ export const RunnerListItem = ({ id, name, runner }: RunnerProps) => {
 
   return (
     <section>
-      <h3>{name}</h3>
+      <h3 style={{ textTransform: "uppercase", textDecoration: "underline" }}>
+        {name}
+      </h3>
       <ul>
         <li style={docLinkStyle}>
           <b>count</b>: {runnerData.ytd_run_totals?.count}

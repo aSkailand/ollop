@@ -9,13 +9,22 @@ const apiKey =
 export const pageStyles = {
   color: "#232129",
   padding: 42,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  fontFamily: "Special Elite, -apple-system, Roboto, sans-serif, serif",
 };
 const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
+  letterSpacing: 20,
+  margin: "auto",
+  fontSize: 64,
+  width: 277,
 };
+
+const hrStyles = {
+  height: 2,
+  borderWidth: 0,
+  color: "#001219",
+  backgroundColor: "#001219",
+};
+
 const headingAccentStyles = {
   color: "#663399",
 };
@@ -44,14 +53,16 @@ export const listItemStyles = {
 };
 
 const linkStyle = {
-  color: "#8954A8",
+  color: "#005f73",
   fontWeight: "bold",
+  fontFamily: "Special Elite, -apple-system, Roboto, sans-serif, serif",
   fontSize: 16,
   verticalAlign: "5%",
 };
 
 export const docLinkStyle = {
   ...linkStyle,
+  color: "#001219",
   listStyleType: "none",
   display: `inline-block`,
   marginBottom: 24,
@@ -60,7 +71,7 @@ export const docLinkStyle = {
 
 const descriptionStyle = {
   color: "#232129",
-  fontSize: 14,
+  fontSize: 16,
   marginTop: 10,
   marginBottom: 0,
   lineHeight: 1.25,
@@ -139,11 +150,14 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <main style={pageStyles}>
-      <h1 style={headingStyles}>ølløp</h1>
+      <h1 style={headingStyles}>ØLLØP</h1>
+      <hr style={hrStyles}></hr>
       <h2>
         <a style={linkStyle} href={getLoginUrl()}>
-          link strava account
+          LINK STRAVA ACCOUNT
         </a>
+        <hr style={hrStyles}></hr>
+        <h3>RUNNERS </h3>
       </h2>
       {runners ? (
         runners.map((runner) => <RunnerListItem key={runner.id} {...runner} />)
